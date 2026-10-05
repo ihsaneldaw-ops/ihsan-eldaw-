@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ihsan Eldaw | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--beige:#F6F1E7; --brown:#3E2B1F; --light:#8D6B55; --accent:#D8BFA0; --card:#FFFCF6;}
+*{margin:0; padding:0; box-sizing:border-box;}
+body{background:var(--beige); color:var(--brown); font-family:'Tajawal', 'Inter', sans-serif;}
+nav{padding:18px 6%; display:flex; justify-content:space-between; align-items:center; background:var(--card); position:sticky; top:0; z-index:100; border-bottom:1px solid #EADDCB;}
+.logo-nav{display:flex; align-items:center; gap:10px; font-weight:800; font-size:20px;}
+.logo-nav img{width:38px; height:38px; border-radius:50%; object-fit:cover; border:1px solid #EADDCB;}
+.lang-btn{background:var(--brown); color:var(--beige); border:none; padding:8px 18px; border-radius:20px; cursor:pointer; font-weight:700;}
+.hero{padding:70px 6%; display:grid; grid-template-columns:1.2fr 0.8fr; gap:30px; align-items:center;}
+.hero h1{font-size:44px; line-height:1.2;}
+.hero h1 span{color:var(--light); border-bottom:4px solid var(--accent);}
+.main-logo{width:80px; height:80px; border-radius:50%; object-fit:cover; border:3px solid #EADDCB; margin-bottom:15px; background:var(--card);}
+.section{padding:60px 6%;}
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+.card{background:var(--card); border-radius:18px; padding:22px; border:1px solid #EADDCB; cursor:pointer; transition:0.3s;}
+.card:hover{transform:translateY(-4px); box-shadow:0 10px 25px rgba(0,0,0,0.06);}
+.card img{width:100%; height:160px; object-fit:cover; border-radius:12px; margin-bottom:12px; background:#EADDCB;}
+.cert-img{height:200px!important; object-fit:contain!important; background:#fff; padding:10px; border:1px dashed #EADDCB;}
+.btn-main{background:var(--brown); color:var(--beige); padding:10px 22px; border-radius:25px; text-decoration:none; display:inline-block; margin-top:10px;}
+.social-box{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:25px;}
+.social-box a{background:rgba(255,255,255,0.1); border:1px solid var(--accent); color:var(--beige); padding:10px 18px; border-radius:30px; text-decoration:none; font-size:14px; display:flex; align-items:center; gap:8px; transition:0.3s;}
+.social-box a:hover{background:var(--beige); color:var(--brown);}
+.modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:200; justify-content:center; align-items:center; padding:20px;}
+.modal-content{background:var(--card); max-width:700px; width:100%; border-radius:20px; padding:30px; max-height:90vh; overflow-y:auto; position:relative;}
+.close{position:absolute; top:15px; left:20px; font-size:24px; cursor:pointer;}
+footer{background:var(--brown); color:var(--beige); padding:50px 6%; text-align:center; margin-top:40px;}
+@media(max-width:768px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:1fr;}.hero h1{font-size:30px;}}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo-nav">
+<!-- غيري رابط اللوغو هنا -->
+<img src="https://i.ibb.co/BKGYP7Xx/received-1760257572087014.jpg" alt="logo">
+<span>إحسان الضو | Ihsan Eldaw </span>
+</div>
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
+</nav>
+
+<div class="hero">
+<div>
+<!-- اللوغو في المقدمة - غيري الرابط هنا -->
+<img src="https://i.ibb.co/BKGYP7Xx/received-1760257572087014.jpg=LOGo" class="main-logo" alt="Ihsan Logo">
+<h1 id="heroTitle">  أُبسِط <span>علم النفس</span> بالدارجي السوداني</h1>
+<p id="heroDesc" style="margin-top:15px; color:var(--light);">أنا إحسان الضو هاشم - كاتبة محتوى علم نفس، مصممة ومبرمجة مواقع. مهمتي أخلي المعلومة النفسية توصل ببساطة.</p>
+</div>
+<div class="card" style="cursor:default; text-align:center;">
+<p style="font-size:60px;">🧠</p>
+<p style="font-weight:800;" id="msgTitle">رسالتي</p>
+<p style="font-size:14px; color:var(--light);" id="msgDesc">"الكلمة ممكن تبني إنسان وممكن تكسره"</p>
+</div>
+</div>
+
+<div class="section" id="articles">
+<h2 id="secArticles" style="font-size:28px; margin-bottom:20px;">📚 مقالاتي - تبسيط بالدارجي</h2>
+<div class="grid">
+<div class="card" onclick="openArticle(0)"><img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?q=80&w=600"><h3 class="a-title">تأثير الكلام على الأطفال</h3><p class="a-excerpt" style="font-size:13px; color:var(--light);">عارف انك لو اتولدت ذكي و عشرة أشخاص قالو ليك غبي حتبقى غبي؟</p></div>
+<div class="card" onclick="openArticle(1)"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600"><h3 class="a-title">تعلق السودانيين بتطبيق بنكك</h3><p class="a-excerpt" style="font-size:13px; color:var(--light);">من الرفض للادمان - كيف اتحول تفكيرنا؟</p></div>
+<div class="card" onclick="openArticle(2)"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600"><h3 class="a-title">الدوبامين المزيف</h3><p class="a-excerpt" style="font-size:13px; color:var(--light);">ليه بتحس انك حتحكم العالم بعد فيديو تحفيزي وبعدو ما بتعمل شي؟</p></div>
+<div class="card" onclick="openArticle(3)"><img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=600"><h3 class="a-title">حركات الأثر الفكري</h3><p class="a-excerpt" style="font-size:13px; color:var(--light);">حصل الوالدة قالت ليك الكباية دي حتقع وفعلا وقعت؟</p></div>
+</div>
+</div>
+
+<div class="section" style="background:#ECE3D1;">
+<h2 id="secWeb" style="font-size:28px; margin-bottom:20px;">💻 مواقع صممتها</h2>
+<div class="grid">
+<div class="card" style="cursor:default;"><h3>بورتفوليو الإعلامي هاشم</h3><p style="font-size:13px;">موقع شخصي احترافي</p><br><a href="#" class="btn-main">عرض الموقع</a></div>
+<div class="card" style="cursor:default;"><h3>Lavender Craft - لافندر كرافت</h3><p style="font-size:13px;">متجر إلكتروني لديكور الكونكريت</p><br><a href="#" class="btn-main">عرض المتجر</a></div>
+</div>
+</div>
+
+<div class="section">
+<h2 id="secCert" style="font-size:28px; margin-bottom:20px;">🎓 الشهادات</h2>
+<div class="grid">
+<div class="card" style="cursor:default;">
+<img class="cert-img" src="https://i.ibb.co/ccKPdLGj/IMG-20261005-075349.jpg">
+<h3>Mental Health - UNICEF</h3>
+<p style="font-size:13px; color:var(--light);">Certificate in Mental Health and Psychosocial Support in Education Cluster Coordination.</p>
+</div>
+<div class="card" style="cursor:default;">
+<img class="cert-img" src="https://i.ibb.co/GLFxxMK/IMG.jpg">
+<h3>Strategic Planning in the Age of AI - HP LIFE</h3>
+<p style="font-size:13px; color:var(--light);">Certificate in strategic planning and decision-making using AI tools.</p>
+
+</div>
+</div>
+</div>
+
+<footer>
+<h3 style="margin-bottom:15px; color:var(--accent);" id="followTitle">تابعيني على</h3>
+<div class="social-box">
+<a href="https://www.linkedin.com/in/ihsan-eldaw-hashim-70b0bb430" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+<a href="https://ihsan-eldaw.github.io" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+<a href="https://wa.me/249969136401" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<a href="https://www.facebook.com/IhsanEldaw" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+</div>
+<p id="footerText">© 2026 جميع الحقوق محفوظة - إحسان الضو هاشم</p>
+</footer>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<img id="mImg" src="" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:15px;">
+<h2 id="mTitle"></h2>
+<p id="mBody" style="margin-top:15px; white-space:pre-line; line-height:1.9; text-align:right; direction:rtl;"></p>
+</div>
+</div>
+
+<script>
+let isAr = true;
+const articles = [
+{
+titleAr:"تأثير الكلام على الأطفال", titleEn:"The Effect of Words on Children",
+excerptAr:"عارف انك لو اتولدت ذكي و عشرة أشخاص قالو ليك غبي حتبقى غبي؟",
+excerptEn:"If you were born smart but 10 people told you you're dumb, you'll become dumb. How words shape children.",
+img:"https://images.unsplash.com/photo-1516534775068-ba3e7458af70?q=80&w=600",
+body:`عارف انك لو اتولدت ذكي و عشرة أشخاص من المقربين ليك قالو ليك انك غبي حتبقى غبي؟
+
+ودا الفعلا بحصل في مرحلة الطفولة اي حاجة بتتقال لينا بنصدقها وبتبني شخصيتنا.
+زي لما كان بخوفونا "بالمرفعين" و"الدمبعلو" وكنا بنقتنع و لحدي الان مع انه كبرنا وادركنا انه كذب بس برضو لما نكون برانا وبليل والكهرباء قاطعة بنحس انهم ممكن يجونا في اي لحظة حرفيا
+
+ودا حسب نظرية علمية اسمها " تأثير التوقع " وخير مثال على دا الحصل للعالم الشهير اينشتاين لما كان صغير في المدرسة وفصلوه لانه عنده تأخر دراسي وامه اقنعته انه ذكي فصدق وأصبح من اشهر العلماء في التاريخ لليوم
+
+ فعشان كدا مفروض الاهل المعلمين واي شخص يفكرو كويس في اي انتقاد أو كلام عايزين يقولو للاطفال عشان برسخ في الزهن وبشكلهم ولازم يتعلمو النقد البناء من النقد الهدام لانه أس اكبر المشاكل النفسية
+
+الكلمة ممكن تبني إنسان وممكن تكسره`
+},
+{
+titleAr:"تعلق السودانيين بتطبيق بنكك", titleEn:"Why Sudanese Are Attached to Bankak App",
+excerptAr:"من الرفض للادمان - كيف اتحول تفكيرنا من هورن لهيلو؟",
+excerptEn:"From rejection to addiction - How our thinking shifted from Horn Effect to Halo Effect.",
+img:"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600",
+body:`لو اديتك 10 الف كاش وقلت ليك دخلها بنكك بدون تعمل تبادل مع شخص او توديها البنك حتعمل شنو؟
+
+في مرة من المرات وبدون سبب فجأة خالتي سألتني السؤال وانه كيف بدت فكرة تحويل القروش الورقية لارقام
+
+ كل القصة بدت زمان شديد في الدول المتقدمة لما البنوك حولت فكرة تسجيل القروش في الدفاتر لمعلومات رقمية لما وصلت الخدمة دي السودان و بداها بنك الخرطوم الناس بدت تجقلب وقالو دا نصب واحتيال والناس كلها ما كانت مصدقة اصلا ودا برضو يعتبر "تأثير هورن" زي ما ذكرنا سابقا بس مع مرور الزمن اتقبلو الفكرة عادي وبقى من اشهر التطبيقات والما عنده بنكك يعتبر "زول ساي"
+
+واتغير التأثير من هورن لتاثير هيلو اللي خلى اغلب السودانين متعلقين فيه لانه تجربة واحدة غطت على الباقي وخلتهم ما يثقو في اي بنك تاني حتى لو بقدم خدمات احسن
+
+ودا بورينا كيف ممكن تفكيرنا يتحول من الرفض للادمان`
+},
+{
+titleAr:"الدوبامين المزيف", titleEn:"Fake Dopamine",
+excerptAr:"ليه بتحس انك حتحكم العالم بعد فيديو تحفيزي وبعدو ما بتعمل شي؟",
+excerptEn:"Why do you feel you'll conquer the world after a motivational video, then do nothing?",
+img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600",
+body:`كم مرة شفت محتوى تحفيز وقات حتغير نفسك واول ما تقفل التلفون ما تقدر تعمل اي شي!
+
+كتير بلاقينا محتوى في شكل " لو عايز تغير نفسك الفيديو دا ليك" " تلاتة كتب غيرت حياتي " ولما نشوفها بنحس كاننا حنحكم العالم بعدها
+
+في جسم الانسان في هرمون اسمه الدوبامين بسبب سعادة وحماس للشخص بعد تحقيق انجاز معين طيب نركز في النقطة دي السوشيال والريلز بتدينا دوبامين بس مؤقت وفرقه من الدوبامين الاصلي انه بخليك تحس بالسعادة والحماس قبل تحقق انجاز عكس الاول لانه في الحقيقي السعادة بتجيك بعد تنجز ومنها بتقرر يا تكمل او توقف بس في بتاع السوشيال انت ما بديت اصلا شي ملموس والحل عشان تقدر تنجز فعلا انك مثلا اذا شفت فيديو عن كتب تطوير مثلا من او طوالي تنزل واحد وتقرا ان شاء الله سطر بس وكدا كل مرة لحدي تتعود على الانجازات`
+},
+{
+titleAr:"حركات الأثر الفكري", titleEn:"Ideomotor Effect",
+excerptAr:"حصل يوم الوالدة قالت ليك الكباية دي حتقع وفعلا وقعت؟",
+excerptEn:"Has your mom ever said this cup will fall and it actually fell? The psychology behind it.",
+img:"https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=600",
+body:`حصل يوم الوالدة قالت ليك الكباية دي حتقع وفعلا وقعت؟
+
+ودي حاجة اسمها حركات الاثر الفكري وهي بتحصل لما شخص يركز على حاجة معينة قدامه ويفكر انها حتتحرك فبتولد حركات عضلية صغيرة بتخلي الحاجة دي تتحرك بدون سيطرة واعية زي انك تشيلها وتوقعها بيدك و عبر الزمن الناس بقت تقول انها قوى خارقة للطبيعة بس لا هي حاجة طبيعية فالامهات كان معاهم حق انها حتقع يعني حتقع
+
+هل حصلت ليك قبل كدا؟`
+}
+];
+
+function openArticle(i){
+document.getElementById('mImg').src = articles[i].img;
+document.getElementById('mTitle').innerText = articles[i].titleAr;
+document.getElementById('mBody').innerText = articles[i].body;
+document.getElementById('modal').style.display='flex';
+}
+function closeModal(){document.getElementById('modal').style.display='none';}
+function toggleLang(){
+isAr=!isAr;
+document.documentElement.dir=isAr?'rtl':'ltr';
+document.getElementById('langBtn').innerText=isAr?'English':'العربية';
+document.getElementById('heroTitle').innerHTML=isAr?' أُبسِط  <span>علم النفس</span> بالدارجي السوداني':'Simplifying <span>Psychology</span> in Sudanese Dialect';
+document.getElementById('heroDesc').innerText=isAr?'أنا إحسان الضو هاشم - كاتبة محتوى علم نفس، مصممة ومبرمجة مواقع. مهمتي جعل المعلومة النفسية توصل ببساطة.':'I am Ihsan Eldaw Hashim - Psychology content writer, web designer & developer. My mission is to make psychological knowledge simple.';
+document.getElementById('secArticles').innerText=isAr?'📚 مقالاتي - تبسيط بالدارجي':'📚 My Articles - Content in Arabic';
+document.getElementById('secWeb').innerText=isAr?'💻 مواقع صممتها':'💻 Websites I Designed';
+document.getElementById('secCert').innerText=isAr?'🎓 الشهادات':'🎓 Certificates';
+document.getElementById('msgTitle').innerText=isAr?'رسالتي':'My Message';
+document.getElementById('msgDesc').innerText=isAr?'"الكلمة ممكن تبني إنسان وممكن تكسره"':'"A word can build a person and can break him"';
+document.getElementById('footerText').innerText=isAr?'© 2026 جميع الحقوق محفوظة - إحسان الضو هاشم':'© 2026 All Rights Reserved - Ihsan Eldaw Hashim';
+document.getElementById('followTitle').innerText=isAr?'تابعيني على':'Follow Me On';
+document.querySelectorAll('.a-title').forEach((el,idx)=>{el.innerText=isAr?articles[idx].titleAr:articles[idx].titleEn;});
+document.querySelectorAll('.a-excerpt').forEach((el,idx)=>{el.innerText=isAr?articles[idx].excerptAr:articles[idx].excerptEn;});
+}
+</script>
+</body>
+</html>
